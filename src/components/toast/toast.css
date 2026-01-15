@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+.toast-stack {
+    @apply fixed z-10 flex flex-col gap-3 items-start
+}
+.toast-stack.toast-stack--top-right {
+    @apply top-2.5 right-2.5
+}
+.toast-stack.toast-stack--top-left {
+    @apply top-2.5 left-2.5
+}
+.toast-stack.toast-stack--bottom-right {
+    @apply bottom-2.5 right-2.5 flex-col-reverse
+}
+.toast-stack.toast-stack--bottom-left {
+    @apply bottom-2.5 left-2.5 flex-col-reverse
+}
+.toast {
+    @apply w-72 md:w-80 lg:w-96 rounded-sm shadow-md flex items-center py-2 px-2 text-white
+}
+.toast-stack.toast--animate-slide .toast {
+    
+}
+.toast--info {
+    @apply bg-blue-400
+}
+
+.toast--warn {
+    @apply bg-orange-600
+}
+
+.toast--success {
+    @apply bg-green-800
+}
+
+.toast--error {
+    @apply bg-red-500
+}
+
+.toast__icon {
+    @apply h-10 w-10 inline-flex justify-center items-center text-lg leading-0 text-white
+}
+
+.toast__text {
+    @apply flex-1 w-full text-start
+}
+
+.toast__button {
+    @apply h-12 w-12 rounded-full outline-0 border-0 bg-transparent inline-flex justify-center items-center leading-0 text-white hover:bg-[rgba(255,255,255,0.2)] hover:outline-0 focus:outline-0 cursor-pointer p-0
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(.2);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.toast-stack--top-left.toast-animate-slide .toast,
+.toast-stack--bottom-left.toast-animate-slide .toast {
+    animation-name: slide-in-left;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.toast-stack--top-right.toast-animate-slide .toast,
+.toast-stack--bottom-right.toast-animate-slide .toast {
+    animation-name: slide-in-right;
+    animation-duration: 150ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.toast-animate-fade .toast {
+    animation-name: fade-in;
+    animation-duration: 250ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.toast-animate-pop .toast {
+    animation-name: pop-in;
+    animation-duration: 75ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
