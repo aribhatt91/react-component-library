@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+.otp-input-digit {
+    @apply inline-flex justify-center items-center text-center w-12 h-12 border-2 border-gray-700 focus:border-black text-lg leading-0
+}
+
+.otp-input-digit.input--error {
+    @apply border-red-600
+}

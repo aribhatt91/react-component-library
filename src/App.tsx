@@ -2,13 +2,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import useToast from './components/toast/useToast';
+import OTInput from './components/otp-input/otp-input';
 
 function App() {
   //const [count, setCount] = useState(0);
   const { showToast, ToastStack } = useToast({ 
     position: 'bottom-right', 
-    sticky: true,
-    animate: 'pop'
+    sticky: false,
+    animate: 'slide'
   });
 
   return (
@@ -23,6 +24,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <div className='card'>
+        <OTInput length={6} onValueChange={console.log} onSubmit={console.log} />
+      </div>
       <div className="card">
         <button onClick={() => showToast({
           type: 'info',
